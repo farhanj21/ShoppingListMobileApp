@@ -2,6 +2,7 @@ package com.example.smdassignment4;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -22,7 +23,7 @@ public class AddItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
 
-        // Initialize Firebase Database Reference
+        // Initialize Firebase Realtime Database reference
         databaseReference = FirebaseDatabase.getInstance().getReference("shoppingLists");
 
         // Link UI elements
@@ -36,21 +37,19 @@ public class AddItemActivity extends AppCompatActivity {
     }
 
     private void saveItem() {
+        // Get data from the UI
         String itemName = itemNameField.getText().toString().trim();
         String quantityStr = quantityField.getText().toString().trim();
         String priceStr = priceField.getText().toString().trim();
 
-        // Validate input fields
+        // Validation and conversion
         if (TextUtils.isEmpty(itemName)) {
             Toast.makeText(this, "Please enter an item name", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (TextUtils.isEmpty(quantityStr)) {
-            Toast.makeText(this, "Please enter a quantity", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(priceStr)) {
-            Toast.makeText(this, "Please enter a price", Toast.LENGTH_SHORT).show();
+
+        if (TextUtils.isEmpty(quantityStr) || TextUtils.isEmpty(priceStr)) {
+            Toast.makeText(this, "Please enter quantity and price", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -63,17 +62,19 @@ public class AddItemActivity extends AppCompatActivity {
         // Create a new ShoppingItem object
         ShoppingItem item = new ShoppingItem(itemName, quantity, price);
 
-        // Save the item to Firebase
+        // Save the item to Firebase Realtime Database
         if (itemId != null) {
             databaseReference.child(itemId).setValue(item)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
                             Toast.makeText(this, "Item added successfully", Toast.LENGTH_SHORT).show();
-                            finish(); // Return to the previous activity
+                            finish(); // Go back to the previous screen
                         } else {
                             Toast.makeText(this, "Error: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
                     });
+        } else {
+            Toast.makeText(this, "Failed to generate item ID", Toast.LENGTH_SHORT).show();
         }
     }
 }

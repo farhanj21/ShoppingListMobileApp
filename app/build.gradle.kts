@@ -37,6 +37,7 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-database")
+    implementation("com.google.firebase:firebase-database:20.0.3")
     implementation("com.firebaseui:firebase-ui-firestore:8.0.0")
     implementation("com.google.firebase:firebase-analytics")
     implementation(libs.appcompat)

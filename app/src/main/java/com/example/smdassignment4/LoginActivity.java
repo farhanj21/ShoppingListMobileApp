@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
         // Initialize FirebaseAuth
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -49,15 +50,21 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             firebaseAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(task -> {
+                    .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(LoginActivity.this, ShoppingListActivity.class));
-                            finish();
+                            // Login successful
+                            Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show();
+
+                            // Correct Intent to navigate to ShoppingListActivity
+                            Intent intent = new Intent(LoginActivity.this, ShoppingListActivity.class);
+                            startActivity(intent);
+                            finish();  // Finish LoginActivity to prevent going back to it
                         } else {
-                            Toast.makeText(LoginActivity.this, "Error: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            // Login failed
+                            Toast.makeText(this, "Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
+
         });
 
         // Navigate to Register Screen

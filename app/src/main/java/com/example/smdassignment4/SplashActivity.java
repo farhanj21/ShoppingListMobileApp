@@ -25,8 +25,9 @@ public class SplashActivity extends AppCompatActivity {
 
         // Delay and navigate to LoginActivity
         new Handler().postDelayed(() -> {
+            // This ensures that the app navigates to the LoginActivity
             startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-            finish();
-        }, 3000); // 3 seconds delay
+            finish(); // Close SplashActivity
+        }, 3000); // 3 seconds delay for splash screen
     }
 }

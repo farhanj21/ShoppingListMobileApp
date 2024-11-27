@@ -5,7 +5,7 @@ public class ShoppingItem {
     private int quantity;
     private double price;
 
-    // Empty constructor for Firestore
+    // Default constructor needed for Firestore
     public ShoppingItem() {}
 
     public ShoppingItem(String itemName, int quantity, double price) {
