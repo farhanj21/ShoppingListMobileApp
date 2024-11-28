@@ -25,6 +25,8 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".ShoppingListActivity" />
         <activity android:name=".AddItemActivity" />
+        <activity android:name=".RegisterActivity" />
+
         <!-- Other activities like RegisterActivity, ShoppingListActivity should also be declared here -->
     </application>
 
