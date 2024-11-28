@@ -59,7 +59,10 @@ public class ShoppingListActivity extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     ShoppingItem item = dataSnapshot.getValue(ShoppingItem.class);
                     if (item != null) {
+                        item.setKey(dataSnapshot.getKey()); // Ensure key is set
                         shoppingItemList.add(item);
+                    } else {
+                        Log.e("FetchShoppingList", "Failed to parse item: " + dataSnapshot.getKey());
                     }
                 }
                 adapter.setShoppingItems(shoppingItemList); // Update the adapter with new data
@@ -71,6 +74,9 @@ public class ShoppingListActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 
     private void showAddItemDialog() {
         // Inflate the custom layout

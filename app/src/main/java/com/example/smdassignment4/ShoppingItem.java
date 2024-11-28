@@ -1,17 +1,27 @@
 package com.example.smdassignment4;
 
 public class ShoppingItem {
+    private String key;
     private String itemName;
     private int quantity;
     private double price;
 
-    // Default constructor needed for Firestore
-    public ShoppingItem() {}
+    public ShoppingItem() {
+        // Default constructor required for Firebase
+    }
 
     public ShoppingItem(String itemName, int quantity, double price) {
         this.itemName = itemName;
         this.quantity = quantity;
         this.price = price;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getItemName() {
