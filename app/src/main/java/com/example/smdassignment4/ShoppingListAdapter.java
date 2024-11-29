@@ -19,7 +19,6 @@ public class ShoppingListAdapter extends FirestoreRecyclerAdapter<ShoppingItem, 
 
     @Override
     protected void onBindViewHolder(@NonNull ShoppingListViewHolder holder, int position, @NonNull ShoppingItem model) {
-        // Bind data from Firestore to views
         holder.itemNameTextView.setText(model.getItemName());
         holder.quantityTextView.setText(String.valueOf(model.getQuantity()));
         holder.priceTextView.setText(String.format("$%.2f", model.getPrice()));

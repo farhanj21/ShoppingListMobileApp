@@ -41,8 +41,7 @@ public class ShoppingListCustomAdapter extends RecyclerView.Adapter<ShoppingList
         holder.priceTextView.setText(String.format("$%.2f", item.getPrice()));
 
         holder.deleteButton.setOnClickListener(view -> {
-            // Remove the item from Firebase Realtime Database
-            String key = item.getKey(); // Ensure ShoppingItem has a `key` field
+            String key = item.getKey();
             if (key != null) {
                 databaseReference.child(key).removeValue()
                         .addOnCompleteListener(task -> {

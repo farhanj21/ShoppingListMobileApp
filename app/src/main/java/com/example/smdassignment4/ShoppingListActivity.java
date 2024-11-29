@@ -35,7 +35,6 @@ public class ShoppingListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_list);
 
-        // Initialize Firebase Realtime Database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         shoppingListRef = database.getReference("shoppingLists");
 
@@ -55,17 +54,17 @@ public class ShoppingListActivity extends AppCompatActivity {
         shoppingListRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                shoppingItemList.clear(); // Clear the list to avoid duplicates
+                shoppingItemList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     ShoppingItem item = dataSnapshot.getValue(ShoppingItem.class);
                     if (item != null) {
-                        item.setKey(dataSnapshot.getKey()); // Ensure key is set
+                        item.setKey(dataSnapshot.getKey());
                         shoppingItemList.add(item);
                     } else {
                         Log.e("FetchShoppingList", "Failed to parse item: " + dataSnapshot.getKey());
                     }
                 }
-                adapter.setShoppingItems(shoppingItemList); // Update the adapter with new data
+                adapter.setShoppingItems(shoppingItemList);
             }
 
             @Override

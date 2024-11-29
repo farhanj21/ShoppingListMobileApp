@@ -22,16 +22,13 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // Initialize FirebaseAuth
         firebaseAuth = FirebaseAuth.getInstance();
 
-        // Link UI elements
         emailField = findViewById(R.id.emailField);
         passwordField = findViewById(R.id.passwordField);
         confirmPasswordField = findViewById(R.id.confirmPasswordField);
         registerButton = findViewById(R.id.registerButton);
 
-        // Register Button OnClick
         registerButton.setOnClickListener(view -> {
             String email = emailField.getText().toString().trim();
             String password = passwordField.getText().toString().trim();
