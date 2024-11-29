@@ -3,24 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:padding="@dimen/pad16">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        android:textSize="@dimen/sp20"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/pad16"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/itemNameField"
-        android:layout_width="@dimen/pad0"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/itemName"
         android:inputType="text"
         android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:layout_marginTop="@dimen/pad5"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogTitle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/quantityField"
-        android:layout_width="@dimen/pad0"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/quantity"
         android:inputType="number"
@@ -33,7 +48,7 @@
 
     <EditText
         android:id="@+id/priceField"
-        android:layout_width="@dimen/pad0"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/price"
         android:inputType="numberDecimal"
@@ -43,4 +58,5 @@
         app:layout_constraintTop_toBottomOf="@id/quantityField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -83,6 +83,7 @@
         android:layout_height="@dimen/pad50"
         android:text="@string/add"
         android:textSize="@dimen/sp14"
+        android:textColor="@color/white"
         android:layout_marginBottom="@dimen/pad16"
         android:backgroundTint="@color/blue"
         android:layout_marginEnd="@dimen/pad16"

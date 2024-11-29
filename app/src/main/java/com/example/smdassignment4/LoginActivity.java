@@ -66,13 +66,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void showForgotPasswordDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Forgot Password");
-        builder.setMessage("Enter your email to reset your password");
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_forgot_password, null);
 
-        final EditText inputEmail = new EditText(this);
-        inputEmail.setHint("Email");
-        builder.setView(inputEmail);
+        EditText inputEmail = dialogView.findViewById(R.id.inputEmail);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(dialogView);
 
         builder.setPositiveButton("Send Reset Email", (dialog, which) -> {
             String email = inputEmail.getText().toString().trim();
@@ -93,8 +92,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
-
         builder.create().show();
     }
+
 }
 

@@ -38,7 +38,7 @@ public class ShoppingListCustomAdapter extends RecyclerView.Adapter<ShoppingList
 
         holder.itemNameTextView.setText(item.getItemName());
         holder.quantityTextView.setText(String.valueOf(item.getQuantity()));
-        holder.priceTextView.setText(String.format("$%.2f", item.getPrice()));
+        holder.priceTextView.setText(String.format("Rs. %.2f", item.getPrice()));
 
         holder.deleteButton.setOnClickListener(view -> {
             String key = item.getKey();

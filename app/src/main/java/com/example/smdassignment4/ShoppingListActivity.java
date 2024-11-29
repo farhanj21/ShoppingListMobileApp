@@ -78,26 +78,20 @@ public class ShoppingListActivity extends AppCompatActivity {
 
 
     private void showAddItemDialog() {
-        // Inflate the custom layout
         final View dialogView = getLayoutInflater().inflate(R.layout.dialog_add_item, null);
 
-        // Link the fields from the custom layout
         final EditText itemNameField = dialogView.findViewById(R.id.itemNameField);
         final EditText quantityField = dialogView.findViewById(R.id.quantityField);
         final EditText priceField = dialogView.findViewById(R.id.priceField);
 
-        // Create the AlertDialog
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Add New Item");
-        builder.setView(dialogView); // Set the custom layout
+        builder.setView(dialogView);
 
-        // Set dialog buttons
         builder.setPositiveButton("Add", (dialog, which) -> {
             String itemName = itemNameField.getText().toString().trim();
             String quantityStr = quantityField.getText().toString().trim();
             String priceStr = priceField.getText().toString().trim();
 
-            // Validate input fields
             if (TextUtils.isEmpty(itemName)) {
                 Toast.makeText(this, "Please enter an item name", Toast.LENGTH_SHORT).show();
                 return;
@@ -111,7 +105,6 @@ public class ShoppingListActivity extends AppCompatActivity {
                 int quantity = Integer.parseInt(quantityStr);
                 double price = Double.parseDouble(priceStr);
 
-                // Create a new ShoppingItem object
                 String itemId = shoppingListRef.push().getKey();
                 if (itemId != null) {
                     ShoppingItem item = new ShoppingItem(itemName, quantity, price);
@@ -131,8 +124,6 @@ public class ShoppingListActivity extends AppCompatActivity {
         });
 
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.dismiss());
-
-        // Show the dialog
         builder.create().show();
     }
 
