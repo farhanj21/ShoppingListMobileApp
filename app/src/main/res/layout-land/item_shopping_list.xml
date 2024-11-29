@@ -1,0 +1,72 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_color"
+    android:padding="@dimen/pad8">
+
+    <TextView
+        android:id="@+id/itemNameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Item"
+        android:textSize="@dimen/sp16"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:gravity="start|center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/quantityTextView"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.4" />
+
+    <TextView
+        android:id="@+id/quantityTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Qty"
+        android:textSize="@dimen/sp16"
+        android:gravity="center"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/itemNameTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/priceTextView"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.2" />
+
+    <TextView
+        android:id="@+id/priceTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Price"
+        android:textSize="@dimen/sp16"
+        android:gravity="center"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/quantityTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/deleteButton"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.2" />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/delete"
+        android:backgroundTint="@color/red"
+        android:layout_marginStart="@dimen/pad8"
+        android:layout_marginEnd="@dimen/pad8"
+        app:layout_constraintStart_toEndOf="@id/priceTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
