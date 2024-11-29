@@ -3,40 +3,43 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="@dimen/pad16">
 
-    <!-- Item Name Field -->
     <EditText
         android:id="@+id/itemNameField"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/pad0"
         android:layout_height="wrap_content"
-        android:hint="Item Name"
+        android:hint="@string/itemName"
         android:inputType="text"
-        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="@dimen/pad5"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Quantity Field -->
     <EditText
         android:id="@+id/quantityField"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/pad0"
         android:layout_height="wrap_content"
-        android:hint="Quantity"
+        android:hint="@string/quantity"
         android:inputType="number"
-        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="@dimen/pad16"
         app:layout_constraintTop_toBottomOf="@id/itemNameField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Price Field -->
     <EditText
         android:id="@+id/priceField"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/pad0"
         android:layout_height="wrap_content"
-        android:hint="Price"
+        android:hint="@string/price"
         android:inputType="numberDecimal"
-        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="@dimen/pad16"
         app:layout_constraintTop_toBottomOf="@id/quantityField"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">SMD Assignment 4</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm">Confirm Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register New Account</string>
+    <string name="forgot">Forgot Password?</string>
+    <string name="item">Item</string>
+    <string name="itemName">Item Name</string>
+    <string name="quantity">Quantity</string>
+    <string name="price">Price</string>
+    <string name="add">Add New Item</string>
+    <string name="delete">Delete</string>
 </resources>

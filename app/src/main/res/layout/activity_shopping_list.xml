@@ -2,65 +2,64 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
 
-    <!-- Header Section (4 columns, last one empty) -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/headerLayout"
-        android:layout_width="0dp"
+        android:layout_width="@dimen/pad0"
         android:layout_height="wrap_content"
-        android:background="#E0E0E0"
-        android:padding="8dp"
+        android:background="@color/blue"
+        android:padding="@dimen/pad8"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Header for Item Name -->
         <TextView
             android:id="@+id/headerItemName"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/pad0"
             android:layout_height="wrap_content"
-            android:text="Item"
-            android:textSize="18sp"
+            android:text="@string/item"
+            android:textSize="@dimen/sp18"
             android:textStyle="bold"
             android:gravity="center"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/headerQuantity" />
 
-        <!-- Header for Quantity -->
         <TextView
             android:id="@+id/headerQuantity"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/pad0"
             android:layout_height="wrap_content"
-            android:text="Quantity"
-            android:textSize="18sp"
+            android:text="@string/quantity"
+            android:textSize="@dimen/sp18"
             android:textStyle="bold"
             android:gravity="center"
+            android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@id/headerItemName"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/headerPrice" />
 
-        <!-- Header for Price -->
         <TextView
             android:id="@+id/headerPrice"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/pad0"
             android:layout_height="wrap_content"
-            android:text="Price"
-            android:textSize="18sp"
+            android:text="@string/price"
+            android:textSize="@dimen/sp18"
             android:textStyle="bold"
             android:gravity="center"
+            android:textColor="@color/white"
             app:layout_constraintStart_toEndOf="@id/headerQuantity"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/emptyColumn" />
 
-        <!-- Empty Column for Delete Button -->
         <TextView
             android:id="@+id/emptyColumn"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/pad0"
             android:layout_height="wrap_content"
             android:text=""
             app:layout_constraintStart_toEndOf="@id/headerPrice"
@@ -69,25 +68,24 @@
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- RecyclerView for the List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/shoppingRecyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/pad0"
+        android:layout_height="@dimen/pad0"
         app:layout_constraintTop_toBottomOf="@id/headerLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/addNewItemButton" />
 
-    <!-- Add New Item Button -->
     <Button
         android:id="@+id/addNewItemButton"
-        android:layout_width="140dp"
-        android:layout_height="50dp"
-        android:text="Add New Item"
-        android:textSize="14sp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="@dimen/pad140"
+        android:layout_height="@dimen/pad50"
+        android:text="@string/add"
+        android:textSize="@dimen/sp14"
+        android:layout_marginBottom="@dimen/pad16"
+        android:backgroundTint="@color/blue"
+        android:layout_marginEnd="@dimen/pad16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
